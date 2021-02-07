@@ -1,0 +1,14 @@
+{
+  "name": "parser",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^7.1.6",
+    "parse-md": "^2.0.4"
+  },
+  "scripts": {
+    "ci": "node index.js ci",
+    "site": "node index.js site"
+  }
+}
