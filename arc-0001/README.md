@@ -1,3 +1,13 @@
+---
+arc: 1
+title: ARC Proposal Guidelines
+authors: The Aleo Team <hello@aleo.org>
+topic: Meta
+status: Living
+reviewers: Howard Wu <howard@aleo.org>
+created: 2020-02-07
+---
+
 ## Overview
 
 Aleo Request for Comments (ARCs) are protocol-level, network-level, and application-level standards for the Aleo ecosystem.

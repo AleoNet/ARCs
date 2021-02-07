@@ -1,4 +1,4 @@
-# ARCs
+# Aleo Request for Comments (ARCs)
 
 🚨 This repository is under active development. 🚨
 

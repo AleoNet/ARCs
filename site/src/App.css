@@ -1,0 +1,12 @@
+.logo {
+    float: left;
+    width: 100px;
+    height: 31px;
+}
+
+.logo:before {
+    content: "ARCs";
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
