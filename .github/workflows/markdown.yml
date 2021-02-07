@@ -16,7 +16,8 @@ jobs:
 
       - name: Get changed files
         id: getfile
-        run: echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep -e '.*\.md$' | xargs)"
+        run: |
+          echo "::set-output name=files::$(git diff-tree --no-commit-id --name-only -r ${{ github.sha }} | grep -e '.*\.md$' -e '.*\.mermaid$' | xargs)"
 
       - name: MD files changed
         run: echo ${{ steps.getfile.outputs.files }}
@@ -25,12 +26,12 @@ jobs:
         uses: neenjaw/compile-mermaid-markdown-action@master
         with:
           files: ${{ steps.getfile.outputs.files }}
-          output: '.resources'
+          output: 'output'
         env:
           HIDE_CODEBLOCKS: 1
           ABSOLUTE_IMAGE_LINKS: 1
 
-      - name: Show changes
+      - name: Git status
         run: git status
 
       - name: Commit files
@@ -38,7 +39,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git diff-index --quiet HEAD || git commit -m "Add markdown changes"
+          git diff-index --quiet HEAD || git commit -m "Add Markdown changes"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
