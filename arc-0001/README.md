@@ -20,6 +20,7 @@ graph LR
         draft([Draft]) --> active([Active])
     end
     
+
     idea([Idea]) -.-> withdrawn([Withdrawn])
     draft([Draft]) -.-> withdrawn([Withdrawn])
     active([Active]) -.-> withdrawn([Withdrawn])
