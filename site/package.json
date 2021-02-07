@@ -15,6 +15,7 @@
   },
   "scripts": {
     "prestart": "cd ../parser && yarn install && yarn site",
+    "prebuild": "cd ../parser && yarn install && yarn site",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
