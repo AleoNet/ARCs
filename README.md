@@ -1,4 +1,9 @@
-# Aleo Request for Comments (ARCs)
+<h1 align="center">Aleo Request for Comments (ARCs)</h1>
+
+<p align="center">
+    <a href="https://github.com/AleoHQ/ARCs/actions"><img src="https://github.com/AleoHQ/ARCs/workflows/CI/badge.svg"></a>
+    <a href="https://discord.gg/wURR8A7vEe"><img src="https://img.shields.io/discord/700454073459015690?logo=discord"/></a>
+</p>
 
 🚨 This repository is under active development. 🚨
 
