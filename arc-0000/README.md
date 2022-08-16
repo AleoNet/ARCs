@@ -33,28 +33,9 @@ a new ARC standard.
 
 <-- Include process diagrams. -->
 
-## Dependencies
+### Test Cases
 
-This section should list the affected products, projects, and repositories that either directly or indirectly
-are affected by this ARC proposal.
-
-<-- Will this affect the Aleo PM, Aleo Explorer, or Aleo Studio? -->
-
-<-- Will this affect Aleo, Leo, snarkOS, snarkVM, or any other repositories? -->
-
-
-## Backwards Compatibility
-
-This section should cover any and all backwards incompatibility risks, along with their severity.
-
-<-- List all backwards incompatibilities and their severity. -->
-
-<-- How will the backwards incompatibilities be resolved? -->
-
-
-## Test Cases
-
-This section should introduce any and all critical test cases that need to be considered for a reference implementation.
+This section should introduce any and all critical test cases that need to be considered for the specification.
 
 <-- Provide any test vectors that should be included in unit and/or integration tests. -->
 
@@ -71,6 +52,24 @@ quality, complexity, and completeness of the new ARC standard.
 <-- Link to any relevant Github issues. -->
 
 <-- Link to any related Github branches and/or pull requests. -->
+
+
+## Dependencies
+
+This section should list the affected products, projects, and repositories that either directly or indirectly
+are affected by this ARC proposal.
+
+<-- Will this affect the Aleo PM, Aleo Explorer, or Aleo Studio? -->
+
+<-- Will this affect Aleo, Leo, snarkOS, snarkVM, or any other repositories? -->
+
+### Backwards Compatibility
+
+This section should cover any and all backwards incompatibility risks, along with their severity.
+
+<-- List all backwards incompatibilities and their severity. -->
+
+<-- How will the backwards incompatibilities be resolved? -->
 
 
 ## Security & Compliance
