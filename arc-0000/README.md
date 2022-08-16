@@ -1,11 +1,11 @@
 ---
-arc: 0
-title: Template
-authors: The Aleo Team <hello@aleo.org>
-discussion:
-topic: Meta <!-- Choose: Protocol, Network, Application, or Meta -->
-status: Living
-created: 2020-02-07
+arc: # Add the next sequence number
+title: # Title
+authors: # Add all authors
+discussion: # Create a 'Github Discussion' titled 'ARC-XXXX: {TITLE}`
+topic: # Choose: Protocol, Network, Application, or Meta
+status: Draft
+created: # Date
 ---
 
 ## Abstract
