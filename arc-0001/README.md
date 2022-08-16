@@ -16,7 +16,7 @@ Aleo Request for Comments (ARCs) are protocol-level, network-level, and applicat
 
 ARC standards proposals should be labeled with one of the following categories:
   - `Protocol`: all core features, system parameters, consensus upgrades, and cryptographic protocols
-  - `Networking`: all communication protocols, message formats, and RPC standards
+  - `Network`: all communication protocols, message formats, and RPC standards
   - `Application`: all application-level standards and conventions
   - `Meta`: all informational and general-purpose notices
 
@@ -25,28 +25,25 @@ ARC standards proposals should be labeled with one of the following categories:
 ```mermaid
 graph LR
     subgraph authors
-        idea([Idea]) --> draft([Draft])
         draft([Draft]) --> active([Active])
     end
 
-    idea([Idea]) -.-> withdrawn([Withdrawn])
     draft([Draft]) -.-> withdrawn([Withdrawn])
     active([Active]) -.-> withdrawn([Withdrawn])
     
-    subgraph reviewers
+    subgraph standards
         active([Active]) --> decision{Decision}
         decision{Decision} --> accepted([Accepted])
-        decision{Decision} -.-> rejected([Rejected])
     end
     
+    decision{Decision} -.-> rejected([Rejected])
+
     subgraph standards
         accepted([Accepted]) --> final([Final])
         accepted([Accepted]) --> living([Living])
         final([Final]) -.-> deprecated([Deprecated])
     end
 ```
-
-`Idea` refers to a proposal that is in the brainstorming phase and is not ready for review.
 
 `Draft` refers to a proposal that is currently undergoing development and is not ready for review.
 
