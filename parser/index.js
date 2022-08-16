@@ -6,16 +6,16 @@ const parseMD = require('parse-md').default;
  * arc: 1
  * title: Template
  * authors: The Aleo Team <hello@aleo.org>
+ * discussion: 
  * topic: Meta
  * status: Living
- * reviewers: Howard Wu <howard@aleo.org>
  * created: 2020-02-07
  */
-const requiredMetadata = ['arc', 'title', 'authors', 'topic', 'status', 'reviewers', 'created'];
+const requiredMetadata = ['arc', 'title', 'authors', 'discussion', 'topic', 'status', 'created'];
 
-const topics = ['Meta', 'Protocol', 'Network', 'Application'];
+const topics = ['Protocol', 'Network', 'Application', 'Meta'];
 
-const statuses = ['Idea', 'Draft', 'Active', 'Withdrawn', 'Accepted', 'Rejected', 'Final', 'Deprecated', 'Living'];
+const statuses = ['Draft', 'Active', 'Withdrawn', 'Accepted', 'Rejected', 'Final', 'Deprecated', 'Living'];
 
 // Executes sanity checks for CI.
 const ci = () => {
@@ -130,9 +130,9 @@ const checkArcReadmeContent = async (arcDirectory) => {
      * arc: 1
      * title: Template
      * authors: The Aleo Team <hello@aleo.org>
+     * discussion: 
      * topic: Meta
      * status: Living
-     * reviewers: Howard Wu <howard@aleo.org>
      * created: 2020-02-07
      */
 
