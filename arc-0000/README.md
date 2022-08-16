@@ -1,7 +1,7 @@
 ---
 arc: # Add the next sequence number
 title: # Title
-authors: # Add all authors
+authors: # Add all Github usernames, emails, and/or full names
 discussion: # Create a 'Github Discussion' titled 'ARC-XXXX: {TITLE}`
 topic: # Choose: Protocol, Network, Application, or Meta
 status: Draft
