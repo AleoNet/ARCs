@@ -8,11 +8,11 @@ reviewers: Howard Wu <howard@aleo.org>
 created: 2020-02-07
 ---
 
-## Overview
+## Abstract
 
 Aleo Request for Comments (ARCs) are protocol-level, network-level, and application-level standards for the Aleo ecosystem.
 
-## Topics
+## Specification
 
 ARC standards proposals should be labeled with one of the following categories:
   - `Protocol`: all core features, system parameters, consensus upgrades, and cryptographic protocols
@@ -20,8 +20,7 @@ ARC standards proposals should be labeled with one of the following categories:
   - `Application`: all application-level standards and conventions
   - `Meta`: all informational and general-purpose notices
 
-
-## Process
+### Process
 
 ```mermaid
 graph LR
@@ -29,7 +28,6 @@ graph LR
         idea([Idea]) --> draft([Draft])
         draft([Draft]) --> active([Active])
     end
-    
 
     idea([Idea]) -.-> withdrawn([Withdrawn])
     draft([Draft]) -.-> withdrawn([Withdrawn])
@@ -65,4 +63,3 @@ graph LR
 `Deprecated` refers to a proposal that has been superseded or replaced by a new proposal that is now marked as `Final`.
 
 `Living` refers to a proposal that was `Accepted` and intended to remain as a living document.
-

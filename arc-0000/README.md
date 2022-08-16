@@ -8,24 +8,21 @@ reviewers: Howard Wu <howard@aleo.org>
 created: 2020-02-07
 ---
 
-## Overview
+## Abstract
 
 This file serves as the suggested template for new ARC proposals.
 
-We understand that every proposal is different, and the purpose of this template is to help guide you 
+We understand that every proposal is different, and the purpose of this template is to help guide you
 to ensure your proposal has considered as many aspects as possible.
-
-<-- If someone only reads this far, what do you want them to know? -->
-
-
-## Motivation
 
 This section should describe the rationale for this ARC.
 
 <-- What problem does this proposal address? -->
 
+<-- If someone only reads this far, what do you want them to know? -->
 
-## Design
+
+## Specification
 
 This section should outline the technical requirements and considerations for incorporating this proposal as
 a new ARC standard.
@@ -35,7 +32,6 @@ a new ARC standard.
 <-- Describe the architecture. -->
 
 <-- Include process diagrams. -->
-
 
 ## Dependencies
 
