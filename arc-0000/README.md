@@ -2,9 +2,9 @@
 arc: 0
 title: Template
 authors: The Aleo Team <hello@aleo.org>
+discussion:
 topic: Meta <!-- Choose: Protocol, Network, Application, or Meta -->
 status: Living
-reviewers: Howard Wu <howard@aleo.org>
 created: 2020-02-07
 ---
 

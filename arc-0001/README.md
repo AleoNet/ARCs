@@ -2,9 +2,9 @@
 arc: 1
 title: ARC Proposal Guidelines
 authors: The Aleo Team <hello@aleo.org>
+discussion:
 topic: Meta
 status: Living
-reviewers: Howard Wu <howard@aleo.org>
 created: 2020-02-07
 ---
 
