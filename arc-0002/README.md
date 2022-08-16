@@ -1,7 +1,7 @@
 ---
 arc: 2
 title: Aleo Virtual Machine (AVM)
-authors: Howard Wu (@howardwu)
+authors: howardwu, acoglio, collinc97, d0cd
 discussion: https://github.com/AleoHQ/ARCs/discussions/5
 topic: Protocol
 status: Draft
