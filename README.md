@@ -5,8 +5,6 @@
     <a href="https://discord.gg/wURR8A7vEe"><img src="https://img.shields.io/discord/700454073459015690?logo=discord"/></a>
 </p>
 
-🚨 This repository is under active development. 🚨
-
 Aleo Request for Comments (ARCs) are protocol-level, network-level, and application-level standards for the Aleo ecosystem.
 
 ## 📝 License
