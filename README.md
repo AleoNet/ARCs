@@ -7,7 +7,14 @@
 
 Aleo Request for Comments (ARCs) are protocol-level, network-level, and application-level standards for the Aleo ecosystem.
 
-## 📝 License
+## ✍️ Getting Started
+
+To create a new ARC proposal:
+1. Copy the template [ARC-0000](./arc-0000) into a new folder with the latest ARC number (ARC-XXXX)
+2. Open a [Github Discussion](https://github.com/AleoHQ/ARCs/discussions/categories/arcs) for your ARC number
+3. File a [Pull Request](https://github.com/AleoHQ/ARCs/pulls) to add your new ARC proposal
+
+## 📜 License
 
 This library is licensed under either of the following licenses, at your discretion.
 
