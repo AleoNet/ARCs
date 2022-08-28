@@ -1,5 +1,5 @@
 ---
-arc: # Add the next sequence number
+arc: 0000 # Add the next sequence number
 title: # Title
 authors: # Add all Github usernames, emails, and/or full names
 discussion: # Create a 'Github Discussion' titled 'ARC-XXXX: {TITLE}`
