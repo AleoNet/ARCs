@@ -15,57 +15,57 @@ The following is a list of opcodes supported by the Aleo Virtual Machine (AVM).
 | Name                              | Description                        |
 | --------------------------------- |:---------------------------------- |
 | [abs](#abs)                       | Absolute value operation           |
-| [abs.w](#abs.w)                   | Wrapping absolute value operation  |
+| [abs.w](#absw)                    | Wrapping absolute value operation  |
 | [add](#add)                       | Addition operation                 |
-| [add.w](#add.w)                   | Wrapping add operation             |
+| [add.w](#addw)                    | Wrapping add operation             |
 | [and](#and)                       | AND operation                      |
-| [assert.eq](#assert.eq)           | Assert equality                    |
-| [assert.neq](#assert.neq)         | Assert non-equality                |
-| [commit.bhp256](#commit.bhp256)   | 256-bit input BHP commitment       |
-| [commit.bhp512](#commit.bhp512)   | 512-bit input BHP commitment       |
-| [commit.bhp768](#commit.bhp768)   | 768-bit input BHP commitment       |
-| [commit.bhp1024](#commit.bhp1024) | 1024-bit input BHP commitment      |
-| [commit.ped64](#commit.ped64)     | 64-bit input Pedersen commitment   |
-| [commit.ped128](#commit.ped128)   | 128-bit input Pedersen commitment  |
+| [assert.eq](#asserteq)            | Assert equality                    |
+| [assert.neq](#assertneq)          | Assert non-equality                |
+| [commit.bhp256](#commitbhp256)    | 256-bit input BHP commitment       |
+| [commit.bhp512](#commitbhp512)    | 512-bit input BHP commitment       |
+| [commit.bhp768](#commitbhp768)    | 768-bit input BHP commitment       |
+| [commit.bhp1024](#commitbhp1024)  | 1024-bit input BHP commitment      |
+| [commit.ped64](#commitped64)      | 64-bit input Pedersen commitment   |
+| [commit.ped128](#commitped128)    | 128-bit input Pedersen commitment  |
 | [div](#div)                       | Division operation                 |
-| [div.w](#div.w)                   | Wrapping division operation        |
+| [div.w](#divw)                    | Wrapping division operation        |
 | [double](#double)                 | Double operation                   |
 | [gt](#gt)                         | Greater than comparison            |
 | [gte](#gte)                       | Greater than or equal to comparison|
-| [hash.bhp256](#hash.bhp256)       | 256-bit input BHP hash             |
-| [hash.bhp512](#hash.bhp512)       | 512-bit input BHP hash             |
-| [hash.bhp768](#hash.bhp768)       | 768-bit input BHP hash             |
-| [hash.bhp1024](#hash.bhp1024)     | 1024-bit input BHP hash            |
-| [hash.ped64](#hash.ped64)         | 64-bit input Pedersen hash         |
-| [hash.ped128](#hash.ped128)       | 128-bit input Pedersen hash        |
-| [hash.psd2](#hash.psd2)           | Poseidon hash with input rate 2    |
-| [hash.psd4](#hash.psd4)           | Poseidon hash with input rate 4    |
-| [hash.psd8](#hash.psd8)           | Poseidon hash with input rate 8    |
+| [hash.bhp256](#hashbhp256)        | 256-bit input BHP hash             |
+| [hash.bhp512](#hashbhp512)        | 512-bit input BHP hash             |
+| [hash.bhp768](#hashbhp768)        | 768-bit input BHP hash             |
+| [hash.bhp1024](#hashbhp1024)      | 1024-bit input BHP hash            |
+| [hash.ped64](#hashped64)          | 64-bit input Pedersen hash         |
+| [hash.ped128](#hashped128)        | 128-bit input Pedersen hash        |
+| [hash.psd2](#hashpsd2)            | Poseidon hash with input rate 2    |
+| [hash.psd4](#hashpsd4)            | Poseidon hash with input rate 4    |
+| [hash.psd8](#hashpsd8)            | Poseidon hash with input rate 8    |
 | [inv](#inv)                       | Multiplicative inverse operation   |
-| [is.eq](#is.eq)                   | Equality comparison                |
-| [is.neq](#is.neq)                 | Not equal comparison               |
+| [is.eq](#iseq)                    | Equality comparison                |
+| [is.neq](#isneq)                  | Not equal comparison               |
 | [lt](#lt)                         | Less than comparison               |
 | [lte](#lte)                       | Less than or equal to comparison   |
 | [mod](#mod)                       | Arithmetic modulo operation        |
 | [mul](#mul)                       | Multiplication operation           |
-| [mul.w](#mul.w)                   | Wrapping multiplication operation  |
+| [mul.w](#mulw)                    | Wrapping multiplication operation  |
 | [nand](#nand)                     | `Boolean` NAND operation           |
 | [neg](#neg)                       | Additive inverse operation         |
 | [nor](#nor)                       | `Boolean` NOR operation            |
 | [not](#not)                       | NOT operation                      |
 | [or](#or)                         | OR Operation                       |
 | [pow](#pow)                       | Exponentiation operation           |
-| [pow.w](#pow.w)                   | Wrapping exponentiation operation  |
+| [pow.w](#poww)                    | Wrapping exponentiation operation  |
 | [rem](#rem)                       | Remainder operation                |
-| [rem.w](#rem.w)                   | Wrapping remainder operation       |
+| [rem.w](#remw)                    | Wrapping remainder operation       |
 | [shl](#shl)                       | Shift left operation               |
-| [shl.w](#shl.w)                   | Wrapping Shift left operation      |
+| [shl.w](#shlw)                    | Wrapping Shift left operation      |
 | [shr](#shr)                       | Shift right operation              |
-| [shr.w](#shr.w)                   | Wrapping Shift right operation     |
+| [shr.w](#shrw)                    | Wrapping Shift right operation     |
 | [sqrt](#sqrt)                     | Square root operation              |
 | [square](#square)                 | Square operation                   |
 | [sub](#sub)                       | Subtraction operation              |
-| [sub.w](#sub.w)                   | Wrapping Subtraction operation     |
+| [sub.w](#subw)                    | Wrapping Subtraction operation     |
 | [ternary](#ternary)               | Ternary select operation           |
 | [xor](#xor)                       | XOR operation                      |
 
@@ -81,7 +81,7 @@ The following is the specification for each opcode in the Aleo Virtual Machine (
 
 Computes the absolute value of the input, checking for overflow, storing the result in the destination register.
 
-For integer types, a constraint is added to check for underflow. For cases where wrapping semantics are needed, see the [abs.w](#abs.w) instruction. This underflow happens when the input is the minimum value of a signed integer type. For example, `abs -128i8` would result in underflow, since `128` cannot be represented as an `i8`.
+For integer types, a constraint is added to check for underflow. For cases where wrapping semantics are needed, see the [abs.w](#absw) instruction. This underflow happens when the input is the minimum value of a signed integer type. For example, `abs -128i8` would result in underflow, since `128` cannot be represented as an `i8`.
 
 #### Supported Types
 
@@ -476,7 +476,7 @@ Divides `first` by `second`, storing the outcome in `destination`. Halts on divi
 For integer types, this operation performs truncated division. Furthermore, a constraint is added to check for underflow. This underflow happens when dividing the minimum value of a signed integer type by `-1`. For example, `div -128i8 -1i8` would result in underflow, since `128` cannot be represented as an `i8`.
 
 
-For cases where wrapping semantics are needed for integer types, see the [div.w](#div.w) instruction.
+For cases where wrapping semantics are needed for integer types, see the [div.w](#divw) instruction.
 
 #### Supported Types
 
@@ -1046,7 +1046,7 @@ The semantics of this operation are consistent with the mathematical definition 
 
 Multiplies `first` with `second`, storing the outcome in `destination`.
 
-For integer types, a constraint is added to check for overflow/underflow. For cases where wrapping semantics are needed for integer types, see the [mul.w](#mul.w) instruction.
+For integer types, a constraint is added to check for overflow/underflow. For cases where wrapping semantics are needed for integer types, see the [mul.w](#mulw) instruction.
 
 #### Supported Types
 
@@ -1209,7 +1209,7 @@ Performs an OR operation on integer (bitwise) or boolean `first` and `second`, s
 
 Raises `first` to the power of `second`, storing the outcome in `destination`.
 
-For integer types, a constraint is added to check for overflow/underflow. For cases where wrapping semantics are needed for integer types, see the [pow.w](#pow.w) instruction.
+For integer types, a constraint is added to check for overflow/underflow. For cases where wrapping semantics are needed for integer types, see the [pow.w](#poww) instruction.
 
 #### Supported Types
 
@@ -1270,7 +1270,7 @@ Computes the truncated remainder of `first` divided by `second`, storing the out
 
 A constraint is added to check for underflow.  This underflow happens when the associated division operation, [div](#div), underflows.
 
-For cases where wrapping semantics are needed for integer types, see the [rem.w](#rem.w) instruction.
+For cases where wrapping semantics are needed for integer types, see the [rem.w](#remw) instruction.
 
 #### Supported Types
 
