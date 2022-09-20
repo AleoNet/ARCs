@@ -1,11 +1,11 @@
 ---
-arc: 0030 # Add the next sequence number
-title: Adding self.parent opcode # Title
-authors: evan@demoxlabs.xyz mike@demoxlabs.xyz # Add all Github usernames, emails, and/or full names
-discussion: ARC-0030: Adding self.parent opcode # Create a 'Github Discussion' titled 'ARC-XXXX: {TITLE}`
-topic: Application # Choose: Protocol, Network, or Application
+arc: 0030
+title: Adding self.parent opcode
+authors: evan@demoxlabs.xyz mike@demoxlabs.xyz
+discussion: ARC-0030: Adding self.parent opcode
+topic: Application
 status: Draft
-created: 9/2/2022 # Date
+created: 9/2/2022
 ---
 
 ## Abstract
@@ -18,11 +18,6 @@ In order to enable this functionality, we need an opcode in the Aleo instruction
 By creating this opcode, we could design token/nft programs to enable ownership through a public mapping, enabling Aleo users to transfer assets to a program. A program could then hold them in escrow and only release them as dictated through the smart contract.
 
 In ethereum, there's a concept of `tx.origin` -> `self.caller` and `msg.sender`. Currently, there's no `msg.sender` equivalent in ethereum.
-
-<!-- What problem does this proposal address? -->
-
-<!-- If someone only reads this far, what do you want them to know? -->
-
 
 ## Specification
 
@@ -131,13 +126,9 @@ function convert_token_one_to_token_two:
     finalize self.parent r0 r1;
 ```
 
-<!-- Define key terminology here. -->
 `self.parent` should default to the address of the calling program if there is one. If there isn't a calling program, it should result in the same address as `self.caller`.
 
-<!-- Describe the architecture. -->
 In our AMM example, we define toy token and amm programs to demonstrate how `self.parent` would be used to enable a program to own assets. In `token.aleo`, a user can transfer assets to a program (`amm.aleo`) by calling `transfer` and assets can be transferred out of the pool by calling `transfer_program`. Effectively, `self.parent` gives `amm.aleo` exclusive control to decide how its balance in `token.aleo` is decremented. In our case, we show how a toy AMM could enable pool deposits/lp share issuance, lp share redemption, and swaps.   
-
-<!-- Include process diagrams. -->
 
 ### Test Cases
 
@@ -161,32 +152,18 @@ function get_foo:
 `aleo run get_foo` -> `address(foo.aleo)`
 `aleo run get_bar` -> `address(self.caller)`
 
-
-
 ## Dependencies
 
-<!-- Will this affect the Aleo PM, Aleo Explorer, or Aleo Studio? -->
-
-<!-- Will this affect Aleo, Leo, snarkOS, snarkVM, or any other repositories? -->
 This will impact snarkVM and everything that has snarkVM as a dependency.
 
 ### Backwards Compatibility
 
-<!-- List all backwards incompatibilities and their severity. -->
-
-<!-- How will the backwards incompatibilities be resolved? -->
 As this is a new feature, no programs should be impacted by adding a new opcode.
-
 
 ## Security & Compliance
 
-<!-- Outline any potential security concerns. -->
-
-<!-- Does this proposal introduce regulatory risk? -->
 There should be no regulatory concerns. 
-
 
 ## References
 
-<!-- List any links that would be helpful for context. -->
 Explanation of [tx.origin vs msg.sender in etherem](https://ethereum.stackexchange.com/questions/1891/whats-the-difference-between-msg-sender-and-tx-origin)
