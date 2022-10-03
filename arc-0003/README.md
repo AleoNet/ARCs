@@ -4,7 +4,7 @@ title: Leo and Aleo instructions
 authors: @acoglio, @bendyarm, @collinc97, @d0cd, @howardwu
 discussion: ARC-0003: Leo and Aleo instructions
 topic: Language
-status: Draft
+status: Living
 created: 9-29-2022
 ---
 
