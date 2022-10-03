@@ -1,8 +1,8 @@
 ---
 arc: 3
-title: Leo and Aleo Instructions
+title: Leo and Aleo instructions
 authors: @acoglio, @bendyarm, @collinc97, @d0cd, @howardwu
-discussion: ARC-0003: Leo and Aleo Instructions
+discussion: ARC-0003: Leo and Aleo instructions
 topic: Language
 status: Draft
 created: 9-29-2022
@@ -12,18 +12,16 @@ created: 9-29-2022
 
 The purpose of this ARC is to unify syntax between Leo and Aleo instructions to make it clear what tools developers have at their disposal. We propose several breaking changes to both Leo and Aleo instructions to achieve this goal.
 
-Leo breaking changes:
-* Add `program name.network {}` scope
-* Add `interface` abstract type
-* Change `circuit` type -> `struct` type
-* Change `@program function` -> `transition`
-
-
-Aleo instructions breaking changes:
-* Add `interface` abstract type
-* Change `interface` type -> `struct` type
-* Change `function` -> `transition`
-* Change `closure` -> `function`
+| Leo V1           —> | Leo V2 & Aleo Instructions V2 | <—  Aleo Instructions V1 |
+|:-------------------:|:-----------------------------:|:------------------------:|
+|          ∅          |           `program`           |        `program`         |
+|          ∅          |          `interface`          |            ∅             |
+|      `mapping`      |           `mapping`           |        `mapping`         |
+|      `circuit`      |           `struct`            |       `interface`        |
+|      `record`       |           `record`            |         `record`         |
+| `@program function` |         `transition`          |        `function`        |
+|     `function`      |          `function`           |        `closure`         |
+|   *name.network*    |        *name.network*         |      *name.network*      |
 
 ## Specification
 
@@ -101,20 +99,7 @@ Interfaces cannot be instantiated on their own.
 
 
 **Aleo instructions**
-```rust=
-// @howardwu how do you want to write interfaces?
-interface fooable;
-
-mapping balances:
-	key left as address.public;
-	value right as u64.public;
-
-program foo.aleo is fooable;
-
-mapping balances:
-	key left as address.public;
-	value right as u64.public;
-```
+The syntax for interfaces in Aleo instructions has not been finalized.
 
 Interfaces can be implemented by programs with the `is` keyword.
 Interfaces cannot be instantiated on their own.
@@ -262,51 +247,16 @@ All grammar and documentation repositories will also need to be updated.
 
 (The 'V1' and 'V2' designations refer to Leo and Aleo instructions before and after the change proposed by this ARC. They do not refer to official release versions.)
 
-| Leo V1            | Leo V2       |
-|-------------------|--------------|
-| ---               | program      |
-| ∅                 | interface    |
-| mapping           | mapping      |
-| circuit           | struct       |
-| record            | record       |
-| @program function | transition   |
-| function          | function     |
-| name.network      | name.network |
-
-| Aleo Instructions V1 | Aleo Instructions V2 |
-|----------------------|----------------------|
-| program              | program              |
-| ∅                    | interface            |
-| mapping              | mapping              |
-| interface            | struct               |
-| record               | record               |
-| function             | transition           |
-| closure              | function             |
-| name.network         | name.network         |
-
-
-[//]: # (// Todo: Keep the two tables above or the single table below.)
-[//]: # ()
-[//]: # (| Leo V1       | Leo V2       | Aleo V2      | Aleo V1      |)
-
-[//]: # (|--------------|--------------|--------------|--------------|)
-
-[//]: # (| ∅            | program      | program      | program      |)
-
-[//]: # (| ∅            | interface    | interface    | ∅            |)
-
-[//]: # (| mapping      | mapping      | mapping      | mapping      |)
-
-[//]: # (| circuit      | struct       | struct       | interface    |)
-
-[//]: # (| record       | record       | record       | record       |)
-
-[//]: # (| @program     | transition   | transition   | function     |)
-
-[//]: # (| function     | function     | function     | closure      |)
-
-[//]: # (| name.network | name.network | name.network | name.network |)
-
+| Leo V1           —> | Leo V2 & Aleo Instructions V2 | <—  Aleo Instructions V1 |
+|:-------------------:|:-----------------------------:|:------------------------:|
+|          ∅          |           `program`           |        `program`         |
+|          ∅          |          `interface`          |            ∅             |
+|      `mapping`      |           `mapping`           |        `mapping`         |
+|      `circuit`      |           `struct`            |       `interface`        |
+|      `record`       |           `record`            |         `record`         |
+| `@program function` |         `transition`          |        `function`        |
+|     `function`      |          `function`           |        `closure`         |
+|   *name.network*    |        *name.network*         |      *name.network*      |
 
 ## Security & Compliance
 
