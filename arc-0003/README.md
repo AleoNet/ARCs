@@ -1,8 +1,8 @@
 ---
 arc: 3
-title: Testnet 3.2
+title: Leo and Aleo Instructions
 authors: @acoglio, @bendyarm, @collinc97, @d0cd, @howardwu
-discussion: ARC-0003: Testnet 3.2
+discussion: ARC-0003: Leo and Aleo Instructions
 topic: Language
 status: Draft
 created: 9-29-2022
