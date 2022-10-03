@@ -1,9 +1,9 @@
 ---
 arc: 3
 title: Leo and Aleo instructions
-authors: @acoglio, @bendyarm, @collinc97, @d0cd, @howardwu
-discussion: ARC-0003: Leo and Aleo instructions
-topic: Language
+authors: acoglio@aleo.org, collin@aleo.org, ericm@aleo.org, howard@aleo.org, pranav@aleo.org
+discussion: https://github.com/AleoHQ/ARCs/discussions/17
+topic: Application
 status: Living
 created: 9-29-2022
 ---
