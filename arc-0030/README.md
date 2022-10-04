@@ -1,8 +1,8 @@
 ---
-arc: 0030
+arc: 30
 title: Adding self.parent opcode
 authors: evan@demoxlabs.xyz mike@demoxlabs.xyz
-discussion: ARC-0030: Adding self.parent opcode
+discussion: https://github.com/AleoHQ/ARCs/discussions/11
 topic: Application
 status: Draft
 created: 9/2/2022

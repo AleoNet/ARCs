@@ -24,7 +24,7 @@ const ci = () => {
             console.log('Error', err);
             process.exit(1);
         } else {
-            for (let i = 0; i < list.length; i++) {
+            for (let i = 1; i < list.length; i++) {
                 const arcDirectory = list[i];
 
                 /**************************** ****************************/
@@ -56,7 +56,7 @@ const site = () => {
 
             let arcs = {};
 
-            for (let i = 0; i < list.length; i++) {
+            for (let i = 1; i < list.length; i++) {
                 const arcDirectory = list[i];
 
                 /**************************** ****************************/
