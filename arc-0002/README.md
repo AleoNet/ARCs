@@ -12,62 +12,80 @@ created: 2020-02-07
 
 The following is a list of opcodes supported by the Aleo Virtual Machine (AVM).
 
-| Name                              | Description                        |
-| --------------------------------- |:---------------------------------- |
-| [abs](#abs)                       | Absolute value operation           |
-| [abs.w](#absw)                    | Wrapping absolute value operation  |
-| [add](#add)                       | Addition operation                 |
-| [add.w](#addw)                    | Wrapping add operation             |
-| [and](#and)                       | AND operation                      |
-| [assert.eq](#asserteq)            | Assert equality                    |
-| [assert.neq](#assertneq)          | Assert non-equality                |
-| [commit.bhp256](#commitbhp256)    | 256-bit input BHP commitment       |
-| [commit.bhp512](#commitbhp512)    | 512-bit input BHP commitment       |
-| [commit.bhp768](#commitbhp768)    | 768-bit input BHP commitment       |
-| [commit.bhp1024](#commitbhp1024)  | 1024-bit input BHP commitment      |
-| [commit.ped64](#commitped64)      | 64-bit input Pedersen commitment   |
-| [commit.ped128](#commitped128)    | 128-bit input Pedersen commitment  |
-| [div](#div)                       | Division operation                 |
-| [div.w](#divw)                    | Wrapping division operation        |
-| [double](#double)                 | Double operation                   |
-| [gt](#gt)                         | Greater than comparison            |
-| [gte](#gte)                       | Greater than or equal to comparison|
-| [hash.bhp256](#hashbhp256)        | 256-bit input BHP hash             |
-| [hash.bhp512](#hashbhp512)        | 512-bit input BHP hash             |
-| [hash.bhp768](#hashbhp768)        | 768-bit input BHP hash             |
-| [hash.bhp1024](#hashbhp1024)      | 1024-bit input BHP hash            |
-| [hash.ped64](#hashped64)          | 64-bit input Pedersen hash         |
-| [hash.ped128](#hashped128)        | 128-bit input Pedersen hash        |
-| [hash.psd2](#hashpsd2)            | Poseidon hash with input rate 2    |
-| [hash.psd4](#hashpsd4)            | Poseidon hash with input rate 4    |
-| [hash.psd8](#hashpsd8)            | Poseidon hash with input rate 8    |
-| [inv](#inv)                       | Multiplicative inverse operation   |
-| [is.eq](#iseq)                    | Equality comparison                |
-| [is.neq](#isneq)                  | Not equal comparison               |
-| [lt](#lt)                         | Less than comparison               |
-| [lte](#lte)                       | Less than or equal to comparison   |
-| [mod](#mod)                       | Arithmetic modulo operation        |
-| [mul](#mul)                       | Multiplication operation           |
-| [mul.w](#mulw)                    | Wrapping multiplication operation  |
-| [nand](#nand)                     | `Boolean` NAND operation           |
-| [neg](#neg)                       | Additive inverse operation         |
-| [nor](#nor)                       | `Boolean` NOR operation            |
-| [not](#not)                       | NOT operation                      |
-| [or](#or)                         | OR Operation                       |
-| [pow](#pow)                       | Exponentiation operation           |
-| [pow.w](#poww)                    | Wrapping exponentiation operation  |
-| [rem](#rem)                       | Remainder operation                |
-| [rem.w](#remw)                    | Wrapping remainder operation       |
-| [shl](#shl)                       | Shift left operation               |
-| [shl.w](#shlw)                    | Wrapping Shift left operation      |
-| [shr](#shr)                       | Shift right operation              |
-| [shr.w](#shrw)                    | Wrapping Shift right operation     |
-| [sqrt](#sqrt)                     | Square root operation              |
-| [square](#square)                 | Square operation                   |
-| [sub](#sub)                       | Subtraction operation              |
-| [sub.w](#subw)                    | Wrapping Subtraction operation     |
-| [ternary](#ternary)               | Ternary select operation           |
-| [xor](#xor)                       | XOR operation                      |
+| Name                                               | Description                                      |
+| -------------------------------------------------- |:------------------------------------------------ |
+| [abs](#abs)                                        | Absolute value operation                         |
+| [abs.w](#absw)                                     | Wrapping absolute value operation                |
+| [add](#add)                                        | Addition operation                               |
+| [add.w](#addw)                                     | Wrapping add operation                           |
+| [and](#and)                                        | AND operation                                    |
+| [assert.eq](#asserteq)                             | Assert equality                                  |
+| [assert.neq](#assertneq)                           | Assert non-equality                              |
+| [commit.bhp256](#commitbhp256)                     | 256-bit input BHP commitment of field type       |
+| [commit.bhp512](#commitbhp512)                     | 512-bit input BHP commitment of field type       |
+| [commit.bhp768](#commitbhp768)                     | 768-bit input BHP commitment of field type       |
+| [commit.bhp1024](#commitbhp1024)                   | 1024-bit input BHP commitment of field type      |
+| [commit.ped64](#commitped64)                       | 64-bit input Pedersen commitment of field type   |
+| [commit.ped128](#commitped128)                     | 128-bit input Pedersen commitment of field type  |
+| [commit_to_group.bhp256](#commit_to_groupbhp256)   | 256-bit input BHP commitment of group type       |
+| [commit_to_group.bhp512](#commit_to_groupbhp512)   | 512-bit input BHP commitment of group type       |
+| [commit_to_group.bhp768](#commit_to_groupbhp768)   | 768-bit input BHP commitment of group type       |
+| [commit_to_group.bhp1024](#commit_to_groupbhp1024) | 1024-bit input BHP commitment of group type      |
+| [commit_to_group.ped64](#commit_to_groupped64)     | 64-bit input Pedersen commitment of group type   |
+| [commit_to_group.ped128](#commit_to_groupped128)   | 128-bit input Pedersen commitment of group type  |
+| [div](#div)                                        | Division operation                               |
+| [div.w](#divw)                                     | Wrapping division operation                      |
+| [double](#double)                                  | Double operation                                 |
+| [gt](#gt)                                          | Greater than comparison                          |
+| [gte](#gte)                                        | Greater than or equal to comparison              |
+| [hash.bhp256](#hashbhp256)                         | 256-bit input BHP hash of field type             |
+| [hash.bhp512](#hashbhp512)                         | 512-bit input BHP hash of field type             |
+| [hash.bhp768](#hashbhp768)                         | 768-bit input BHP hash of field type             |
+| [hash.bhp1024](#hashbhp1024)                       | 1024-bit input BHP hash of field type            |
+| [hash.ped64](#hashped64)                           | 64-bit input Pedersen hash of field type         |
+| [hash.ped128](#hashped128)                         | 128-bit input Pedersen hash of field type        |
+| [hash.psd2](#hashpsd2)                             | Poseidon hash with input rate 2 of field type    |
+| [hash.psd4](#hashpsd4)                             | Poseidon hash with input rate 4 of field type    |
+| [hash.psd8](#hashpsd8)                             | Poseidon hash with input rate 8 of field type    |
+| [hash_to_group.bhp256](#hash_to_groupbhp256)       | 256-bit input BHP hash of group type             |
+| [hash_to_group.bhp512](#hash_to_groupbhp512)       | 512-bit input BHP hash of group type             |
+| [hash_to_group.bhp768](#hash_to_groupbhp768)       | 768-bit input BHP hash of group type             |
+| [hash_to_group.bhp1024](#hash_to_groupbhp1024)     | 1024-bit input BHP hash of group type            |
+| [hash_to_group.ped64](#hash_to_groupped64)         | 64-bit input Pedersen hash of group type         |
+| [hash_to_group.ped128](#hash_to_groupped128)       | 128-bit input Pedersen hash of group type        |
+| [hash_to_group.psd2](#hash_to_grouppsd2)           | Poseidon hash with input rate 2 of group type    |
+| [hash_to_group.psd4](#hash_to_grouppsd4)           | Poseidon hash with input rate 4 of group type    |
+| [hash_to_group.psd8](#hash_to_grouppsd8)           | Poseidon hash with input rate 8 of group type    |
+| [hash_to_scalar.psd2](#hash_to_scalarpsd2)         | Poseidon hash with input rate 2 of scalar type   |
+| [hash_to_scalar.psd4](#hash_to_scalarpsd4)         | Poseidon hash with input rate 4 of scalar type   |
+| [hash_to_scalar.psd8](#hash_to_scalarpsd8)         | Poseidon hash with input rate 8 of scalar type   |
+| [inv](#inv)                                        | Multiplicative inverse operation                 |
+| [is.eq](#iseq)                                     | Equality comparison                              |
+| [is.neq](#isneq)                                   | Not equal comparison                             |
+| [lt](#lt)                                          | Less than comparison                             |
+| [lte](#lte)                                        | Less than or equal to comparison                 |
+| [mod](#mod)                                        | Arithmetic modulo operation                      |
+| [mul](#mul)                                        | Multiplication operation                         |
+| [mul.w](#mulw)                                     | Wrapping multiplication operation                |
+| [nand](#nand)                                      | `Boolean` NAND operation                         |
+| [neg](#neg)                                        | Additive inverse operation                       |
+| [nor](#nor)                                        | `Boolean` NOR operation                          |
+| [not](#not)                                        | NOT operation                                    |
+| [or](#or)                                          | OR Operation                                     |
+| [pow](#pow)                                        | Exponentiation operation                         |
+| [pow.w](#poww)                                     | Wrapping exponentiation operation                |
+| [rem](#rem)                                        | Remainder operation                              |
+| [rem.w](#remw)                                     | Wrapping remainder operation                     |
+| [shl](#shl)                                        | Shift left operation                             |
+| [shl.w](#shlw)                                     | Wrapping Shift left operation                    |
+| [shr](#shr)                                        | Shift right operation                            |
+| [shr.w](#shrw)                                     | Wrapping Shift right operation                   |
+| [sqrt](#sqrt)                                      | Square root operation                            |
+| [square](#square)                                  | Square operation                                 |
+| [sub](#sub)                                        | Subtraction operation                            |
+| [sub.w](#subw)                                     | Wrapping Subtraction operation                   |
+| [ternary](#ternary)                                | Ternary select operation                         |
+| [xor](#xor)                                        | XOR operation                                    |
 
 ## Specification
 
@@ -92,11 +110,6 @@ For integer types, a constraint is added to check for underflow. For cases where
 | `I32`  | `I32`       |
 | `I64`  | `I64`       |
 | `I128` | `I128`      |
-<!-- | `U8`   | `U8`        |
-| `U16`  | `U16`       |
-| `U32`  | `U32`       |
-| `U64`  | `U64`       |
-| `U128` | `U128`      | -->
 
 ***
 
@@ -117,11 +130,6 @@ Compute the absolute value of the input, wrapping around at the boundary of the 
 | `I32`  | `I32`       |
 | `I64`  | `I64`       |
 | `I128` | `I128`      |
-<!-- | `U8`   | `U8`        |
-| `U16`  | `U16`       |
-| `U32`  | `U32`       |
-| `U64`  | `U64`       |
-| `U128` | `U128`      | -->
 
 ***
 
@@ -413,7 +421,7 @@ The instruction will halt if the given input is smaller than 171 bits.
 
 #### Description
 
-Computes a Pedersen commitment up to a 64-bit input in `first`, and some randomness in `second`, storing the commitment in `destination`. Randomness should always be a `Scalar` value, and the produced commitment will always be a `Group` value.
+Computes a Pedersen commitment up to a 64-bit input in `first`, and some randomness in `second`, storing the commitment in `destination`. Randomness should always be a `Scalar` value, and the produced commitment will always be a `Field` value.
 
 The instruction will halt if the given `String` or `Interface` value exceeds the 64-bit limit.
 
@@ -421,17 +429,17 @@ The instruction will halt if the given `String` or `Interface` value exceeds the
 
 | First       | Second    | Destination |
 | ----------- | --------- |:----------- |
-| `Boolean`   | `Scalar`  | `Group`     |
-| `I8`        | `Scalar`  | `Group`     |
-| `I16`       | `Scalar`  | `Group`     |
-| `I32`       | `Scalar`  | `Group`     |
-| `I64`       | `Scalar`  | `Group`     |
-| `U8`        | `Scalar`  | `Group`     |
-| `U16`       | `Scalar`  | `Group`     |
-| `U32`       | `Scalar`  | `Group`     |
-| `U64`       | `Scalar`  | `Group`     |
-| `String`    | `Scalar`  | `Group`     |
-| `Interface` | `Scalar`  | `Group`     |
+| `Boolean`   | `Scalar`  | `Field`     |
+| `I8`        | `Scalar`  | `Field`     |
+| `I16`       | `Scalar`  | `Field`     |
+| `I32`       | `Scalar`  | `Field`     |
+| `I64`       | `Scalar`  | `Field`     |
+| `U8`        | `Scalar`  | `Field`     |
+| `U16`       | `Scalar`  | `Field`     |
+| `U32`       | `Scalar`  | `Field`     |
+| `U64`       | `Scalar`  | `Field`     |
+| `String`    | `Scalar`  | `Field`     |
+| `Interface` | `Scalar`  | `Field`     |
 
 ***
 
@@ -449,19 +457,213 @@ The instruction will halt if the given `String` or `Interface` value exceeds the
 
 | First       | Second    | Destination |
 | ----------- | --------- |:----------- |
-| `Boolean`   | `Scalar`  | `Group`     |
-| `I8`        | `Scalar`  | `Group`     |
-| `I16`       | `Scalar`  | `Group`     |
-| `I32`       | `Scalar`  | `Group`     |
-| `I64`       | `Scalar`  | `Group`     |
-| `I128`      | `Scalar`  | `Group`     |
-| `U8`        | `Scalar`  | `Group`     |
-| `U16`       | `Scalar`  | `Group`     |
-| `U32`       | `Scalar`  | `Group`     |
-| `U64`       | `Scalar`  | `Group`     |
-| `U128`      | `Scalar`  | `Group`     |
-| `String`    | `Scalar`  | `Group`     |
-| `Interface` | `Scalar`  | `Group`     |
+| `Boolean`   | `Scalar`  | `Field`     |
+| `I8`        | `Scalar`  | `Field`     |
+| `I16`       | `Scalar`  | `Field`     |
+| `I32`       | `Scalar`  | `Field`     |
+| `I64`       | `Scalar`  | `Field`     |
+| `I128`      | `Scalar`  | `Field`     |
+| `U8`        | `Scalar`  | `Field`     |
+| `U16`       | `Scalar`  | `Field`     |
+| `U32`       | `Scalar`  | `Field`     |
+| `U64`       | `Scalar`  | `Field`     |
+| `U128`      | `Scalar`  | `Field`     |
+| `String`    | `Scalar`  | `Field`     |
+| `Interface` | `Scalar`  | `Field`     |
+
+***
+
+### `commit_to_group.bhp256`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Computes a Bowe-Hopwood-Pedersen commitment on inputs of 256-bit chunks in `first`, and some randomness in `second`, storing the commitment in `destination`. Randomness should always be a `Scalar` value, and the produced commitment will always be a `Group` value.
+
+The instruction will halt if the given input is smaller than 129 bits.
+
+#### Supported Types
+
+| First     | Second   | Destination |
+|-----------|----------|:------------|
+| `Address` | `Scalar` | `Group`     |
+| `Boolean` | `Scalar` | `Group`     |
+| `Field`   | `Scalar` | `Group`     |
+| `Group`   | `Scalar` | `Group`     |
+| `I8`      | `Scalar` | `Group`     |
+| `I16`     | `Scalar` | `Group`     |
+| `I32`     | `Scalar` | `Group`     |
+| `I64`     | `Scalar` | `Group`     |
+| `I128`    | `Scalar` | `Group`     |
+| `U8`      | `Scalar` | `Group`     |
+| `U16`     | `Scalar` | `Group`     |
+| `U32`     | `Scalar` | `Group`     |
+| `U64`     | `Scalar` | `Group`     |
+| `U128`    | `Scalar` | `Group`     |
+| `Scalar`  | `Scalar` | `Group`     |
+| `String`  | `Scalar` | `Group`     |
+| `Struct`  | `Scalar` | `Group`     |
+
+***
+
+### `commit_to_group.bhp512`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Computes a Bowe-Hopwood-Pedersen commitment on inputs of 512-bit chunks in `first`, and some randomness in `second`, storing the commitment in `destination`. Randomness should always be a `Scalar` value, and the produced commitment will always be a `Group` value.
+
+The instruction will halt if the given input is smaller than 171 bits.
+
+#### Supported Types
+
+| First     | Second   | Destination |
+|-----------|----------|:------------|
+| `Address` | `Scalar` | `Group`     |
+| `Boolean` | `Scalar` | `Group`     |
+| `Field`   | `Scalar` | `Group`     |
+| `Group`   | `Scalar` | `Group`     |
+| `I8`      | `Scalar` | `Group`     |
+| `I16`     | `Scalar` | `Group`     |
+| `I32`     | `Scalar` | `Group`     |
+| `I64`     | `Scalar` | `Group`     |
+| `I128`    | `Scalar` | `Group`     |
+| `U8`      | `Scalar` | `Group`     |
+| `U16`     | `Scalar` | `Group`     |
+| `U32`     | `Scalar` | `Group`     |
+| `U64`     | `Scalar` | `Group`     |
+| `U128`    | `Scalar` | `Group`     |
+| `Scalar`  | `Scalar` | `Group`     |
+| `String`  | `Scalar` | `Group`     |
+| `Struct`  | `Scalar` | `Group`     |
+
+***
+
+### `commit_to_group.bhp768`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Computes a Bowe-Hopwood-Pedersen commitment on inputs of 768-bit chunks in `first`, and some randomness in `second`, storing the commitment in `destination`. Randomness should always be a `Scalar` value, and the produced commitment will always be a `Group` value.
+
+The instruction will halt if the given input is smaller than 129 bits.
+
+#### Supported Types
+
+| First     | Second   | Destination |
+|-----------|----------|:------------|
+| `Address` | `Scalar` | `Group`     |
+| `Boolean` | `Scalar` | `Group`     |
+| `Field`   | `Scalar` | `Group`     |
+| `Group`   | `Scalar` | `Group`     |
+| `I8`      | `Scalar` | `Group`     |
+| `I16`     | `Scalar` | `Group`     |
+| `I32`     | `Scalar` | `Group`     |
+| `I64`     | `Scalar` | `Group`     |
+| `I128`    | `Scalar` | `Group`     |
+| `U8`      | `Scalar` | `Group`     |
+| `U16`     | `Scalar` | `Group`     |
+| `U32`     | `Scalar` | `Group`     |
+| `U64`     | `Scalar` | `Group`     |
+| `U128`    | `Scalar` | `Group`     |
+| `Scalar`  | `Scalar` | `Group`     |
+| `String`  | `Scalar` | `Group`     |
+| `Struct`  | `Scalar` | `Group`     |
+
+***
+
+### `commit_to_group.bhp1024`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Computes a Bowe-Hopwood-Pedersen commitment on inputs of 1024-bit chunks in `first`, and some randomness in `second`, storing the commitment in `destination`. Randomness should always be a `Scalar` value, and the produced commitment will always be a `Group` value.
+
+The instruction will halt if the given input is smaller than 171 bits.
+
+#### Supported Types
+
+| First     | Second   | Destination |
+|-----------|----------|:------------|
+| `Address` | `Scalar` | `Group`     |
+| `Boolean` | `Scalar` | `Group`     |
+| `Field`   | `Scalar` | `Group`     |
+| `Group`   | `Scalar` | `Group`     |
+| `I8`      | `Scalar` | `Group`     |
+| `I16`     | `Scalar` | `Group`     |
+| `I32`     | `Scalar` | `Group`     |
+| `I64`     | `Scalar` | `Group`     |
+| `I128`    | `Scalar` | `Group`     |
+| `U8`      | `Scalar` | `Group`     |
+| `U16`     | `Scalar` | `Group`     |
+| `U32`     | `Scalar` | `Group`     |
+| `U64`     | `Scalar` | `Group`     |
+| `U128`    | `Scalar` | `Group`     |
+| `Scalar`  | `Scalar` | `Group`     |
+| `String`  | `Scalar` | `Group`     |
+| `Struct`  | `Scalar` | `Group`     |
+
+***
+
+### `commit_to_group.ped64`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Computes a Pedersen commitment up to a 64-bit input in `first`, and some randomness in `second`, storing the commitment in `destination`. Randomness should always be a `Scalar` value, and the produced commitment will always be a `Group` value.
+
+The instruction will halt if the given `String` or `Struct` value exceeds the 64-bit limit.
+
+#### Supported Types
+
+| First     | Second   | Destination |
+|-----------|----------|:------------|
+| `Boolean` | `Scalar` | `Group`     |
+| `I8`      | `Scalar` | `Group`     |
+| `I16`     | `Scalar` | `Group`     |
+| `I32`     | `Scalar` | `Group`     |
+| `I64`     | `Scalar` | `Group`     |
+| `U8`      | `Scalar` | `Group`     |
+| `U16`     | `Scalar` | `Group`     |
+| `U32`     | `Scalar` | `Group`     |
+| `U64`     | `Scalar` | `Group`     |
+| `String`  | `Scalar` | `Group`     |
+| `Struct`  | `Scalar` | `Group`     |
+
+***
+
+### `commit_to_group.ped128`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Computes a Pedersen commitment up to a 128-bit input in `first`, and some randomness in `second`, storing the commitment in `destination`. Randomness should always be a `Scalar` value, and the produced commitment will always be a `Group` value.
+
+The instruction will halt if the given `String` or `Struct` value exceeds the 128-bit limit.
+
+#### Supported Types
+
+| First     | Second   | Destination |
+|-----------|----------|:------------|
+| `Boolean` | `Scalar` | `Group`     |
+| `I8`      | `Scalar` | `Group`     |
+| `I16`     | `Scalar` | `Group`     |
+| `I32`     | `Scalar` | `Group`     |
+| `I64`     | `Scalar` | `Group`     |
+| `I128`    | `Scalar` | `Group`     |
+| `U8`      | `Scalar` | `Group`     |
+| `U16`     | `Scalar` | `Group`     |
+| `U32`     | `Scalar` | `Group`     |
+| `U64`     | `Scalar` | `Group`     |
+| `U128`    | `Scalar` | `Group`     |
+| `String`  | `Scalar` | `Group`     |
+| `Struct`  | `Scalar` | `Group`     |
 
 ***
 
@@ -876,6 +1078,374 @@ Calculates a Poseidon hash with an input rate of 8, from an input in `first`, st
 | `Scalar`    | `Field`     |
 | `String`    | `Field`     |
 | `Interface` | `Field`     |
+
+***
+
+### `hash_to_group.bhp256`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Computes a Bowe-Hopwood-Pedersen hash on inputs of 256-bit chunks in `first`, storing the hash in `destination`. The produced hash will always be a `Group` value.
+
+The instruction will halt if the given input is smaller than 129 bits.
+
+#### Supported Types
+
+| First     | Destination |
+|-----------|:------------|
+| `Address` | `Group`     |
+| `Boolean` | `Group`     |
+| `Field`   | `Group`     |
+| `Group`   | `Group`     |
+| `I8`      | `Group`     |
+| `I16`     | `Group`     |
+| `I32`     | `Group`     |
+| `I64`     | `Group`     |
+| `I128`    | `Group`     |
+| `U8`      | `Group`     |
+| `U16`     | `Group`     |
+| `U32`     | `Group`     |
+| `U64`     | `Group`     |
+| `U128`    | `Group`     |
+| `Scalar`  | `Group`     |
+| `String`  | `Group`     |
+| `Struct`  | `Group`     |
+
+***
+
+### `hash_to_group.bhp512`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Computes a Bowe-Hopwood-Pedersen hash on inputs of 512-bit chunks in `first`, storing the hash in `destination`. The produced hash will always be a `Group` value.
+
+The instruction will halt if the given input is smaller than 171 bits.
+
+#### Supported Types
+
+| First     | Destination |
+|-----------|:------------|
+| `Address` | `Group`     |
+| `Boolean` | `Group`     |
+| `Field`   | `Group`     |
+| `Group`   | `Group`     |
+| `I8`      | `Group`     |
+| `I16`     | `Group`     |
+| `I32`     | `Group`     |
+| `I64`     | `Group`     |
+| `I128`    | `Group`     |
+| `U8`      | `Group`     |
+| `U16`     | `Group`     |
+| `U32`     | `Group`     |
+| `U64`     | `Group`     |
+| `U128`    | `Group`     |
+| `Scalar`  | `Group`     |
+| `String`  | `Group`     |
+| `Struct`  | `Group`     |
+
+***
+
+### `hash_to_group.bhp768`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Computes a Bowe-Hopwood-Pedersen hash on inputs of 768-bit chunks in `first`, storing the hash in `destination`. The produced hash will always be a `Group` value.
+
+The instruction will halt if the given input is smaller than 129 bits.
+
+#### Supported Types
+
+| First     | Destination |
+|-----------|:------------|
+| `Address` | `Group`     |
+| `Boolean` | `Group`     |
+| `Field`   | `Group`     |
+| `Group`   | `Group`     |
+| `I8`      | `Group`     |
+| `I16`     | `Group`     |
+| `I32`     | `Group`     |
+| `I64`     | `Group`     |
+| `I128`    | `Group`     |
+| `U8`      | `Group`     |
+| `U16`     | `Group`     |
+| `U32`     | `Group`     |
+| `U64`     | `Group`     |
+| `U128`    | `Group`     |
+| `Scalar`  | `Group`     |
+| `String`  | `Group`     |
+| `Struct`  | `Group`     |
+
+***
+
+### `hash_to_group.bhp1024`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Computes a Bowe-Hopwood-Pedersen hash on inputs of 1024-bit chunks in `first`, storing the hash in `destination`. The produced hash will always be a `Group` value.
+
+The instruction will halt if the given input is smaller than 171 bits.
+
+#### Supported Types
+
+| First     | Destination |
+|-----------|:------------|
+| `Address` | `Group`     |
+| `Boolean` | `Group`     |
+| `Field`   | `Group`     |
+| `Group`   | `Group`     |
+| `I8`      | `Group`     |
+| `I16`     | `Group`     |
+| `I32`     | `Group`     |
+| `I64`     | `Group`     |
+| `I128`    | `Group`     |
+| `U8`      | `Group`     |
+| `U16`     | `Group`     |
+| `U32`     | `Group`     |
+| `U64`     | `Group`     |
+| `U128`    | `Group`     |
+| `Scalar`  | `Group`     |
+| `String`  | `Group`     |
+| `Struct`  | `Group`     |
+
+***
+
+### `hash_to_group.ped64`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Computes a Pedersen hash up to a 64-bit input in `first`, storing the hash in `destination`. The produced hash will always be a `Group` value.
+
+The instruction will halt if the given `String` or `Struct` value exceeds the 64-bit limit.
+
+#### Supported Types
+
+| First     | Destination |
+|-----------|:------------|
+| `Boolean` | `Group`     |
+| `I8`      | `Group`     |
+| `I16`     | `Group`     |
+| `I32`     | `Group`     |
+| `I64`     | `Group`     |
+| `U8`      | `Group`     |
+| `U16`     | `Group`     |
+| `U32`     | `Group`     |
+| `U64`     | `Group`     |
+| `String`  | `Group`     |
+| `Struct`  | `Group`     |
+
+***
+
+### `hash_to_group.ped128`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Computes a Pedersen hash up to a 128-bit input in `first`, storing the hash in `destination`. The produced hash will always be a `Group` value.
+
+The instruction will halt if the given `String` or `Struct` value exceeds the 128-bit limit.
+
+#### Supported Types
+
+| First     | Destination |
+|-----------|:------------|
+| `Boolean` | `Group`     |
+| `I8`      | `Group`     |
+| `I16`     | `Group`     |
+| `I32`     | `Group`     |
+| `I64`     | `Group`     |
+| `I128`    | `Group`     |
+| `U8`      | `Group`     |
+| `U16`     | `Group`     |
+| `U32`     | `Group`     |
+| `U64`     | `Group`     |
+| `U128`    | `Group`     |
+| `String`  | `Group`     |
+| `Struct`  | `Group`     |
+
+***
+
+### `hash_to_group.psd2`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Calculates a Poseidon hash with an input rate of 2, from an input in `first`, storing the hash in `destination`. The produced hash will always be a `Group` value.
+
+#### Supported Types
+
+| First    | Destination |
+|----------|:------------|
+| `Field`  | `Group`     |
+| `I8`     | `Group`     |
+| `I16`    | `Group`     |
+| `I32`    | `Group`     |
+| `I64`    | `Group`     |
+| `I128`   | `Group`     |
+| `U8`     | `Group`     |
+| `U16`    | `Group`     |
+| `U32`    | `Group`     |
+| `U64`    | `Group`     |
+| `U128`   | `Group`     |
+| `Scalar` | `Group`     |
+| `String` | `Group`     |
+| `Struct` | `Group`     |
+
+***
+
+### `hash_to_group.psd4`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Calculates a Poseidon hash with an input rate of 4, from an input in `first`, storing the hash in `destination`. The produced hash will always be a `Group` value.
+
+#### Supported Types
+
+| First    | Destination |
+|----------|:------------|
+| `Field`  | `Group`     |
+| `I8`     | `Group`     |
+| `I16`    | `Group`     |
+| `I32`    | `Group`     |
+| `I64`    | `Group`     |
+| `I128`   | `Group`     |
+| `U8`     | `Group`     |
+| `U16`    | `Group`     |
+| `U32`    | `Group`     |
+| `U64`    | `Group`     |
+| `U128`   | `Group`     |
+| `Scalar` | `Group`     |
+| `String` | `Group`     |
+| `Struct` | `Group`     |
+
+***
+
+### `hash_to_group.psd8`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Calculates a Poseidon hash with an input rate of 8, from an input in `first`, storing the hash in `destination`. The produced hash will always be a `Group` value.
+
+#### Supported Types
+
+| First    | Destination |
+|----------|:------------|
+| `Field`  | `Group`     |
+| `I8`     | `Group`     |
+| `I16`    | `Group`     |
+| `I32`    | `Group`     |
+| `I64`    | `Group`     |
+| `I128`   | `Group`     |
+| `U8`     | `Group`     |
+| `U16`    | `Group`     |
+| `U32`    | `Group`     |
+| `U64`    | `Group`     |
+| `U128`   | `Group`     |
+| `Scalar` | `Group`     |
+| `String` | `Group`     |
+| `Struct` | `Group`     |
+
+***
+
+### `hash_to_scalar.psd2`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Calculates a Poseidon hash with an input rate of 2, from an input in `first`, storing the hash in `destination`. The produced hash will always be a `Scalar` value.
+
+#### Supported Types
+
+| First    | Destination |
+|----------|:------------|
+| `Field`  | `Scalar`    |
+| `I8`     | `Scalar`    |
+| `I16`    | `Scalar`    |
+| `I32`    | `Scalar`    |
+| `I64`    | `Scalar`    |
+| `I128`   | `Scalar`    |
+| `U8`     | `Scalar`    |
+| `U16`    | `Scalar`    |
+| `U32`    | `Scalar`    |
+| `U64`    | `Scalar`    |
+| `U128`   | `Scalar`    |
+| `Scalar` | `Scalar`    |
+| `String` | `Scalar`    |
+| `Struct` | `Scalar`    |
+
+***
+
+### `hash_to_scalar.psd4`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Calculates a Poseidon hash with an input rate of 4, from an input in `first`, storing the hash in `destination`. The produced hash will always be a `Scalar` value.
+
+#### Supported Types
+
+| First    | Destination |
+|----------|:------------|
+| `Field`  | `Scalar`    |
+| `I8`     | `Scalar`    |
+| `I16`    | `Scalar`    |
+| `I32`    | `Scalar`    |
+| `I64`    | `Scalar`    |
+| `I128`   | `Scalar`    |
+| `U8`     | `Scalar`    |
+| `U16`    | `Scalar`    |
+| `U32`    | `Scalar`    |
+| `U64`    | `Scalar`    |
+| `U128`   | `Scalar`    |
+| `Scalar` | `Scalar`    |
+| `String` | `Scalar`    |
+| `Struct` | `Scalar`    |
+
+***
+
+### `hash_to_scalar.psd8`
+
+[Back to Top](#table-of-standard-opcodes)
+
+#### Description
+
+Calculates a Poseidon hash with an input rate of 8, from an input in `first`, storing the hash in `destination`. The produced hash will always be a `Scalar` value.
+
+#### Supported Types
+
+| First    | Destination |
+|----------|:------------|
+| `Field`  | `Scalar`    |
+| `I8`     | `Scalar`    |
+| `I16`    | `Scalar`    |
+| `I32`    | `Scalar`    |
+| `I64`    | `Scalar`    |
+| `I128`   | `Scalar`    |
+| `U8`     | `Scalar`    |
+| `U16`    | `Scalar`    |
+| `U32`    | `Scalar`    |
+| `U64`    | `Scalar`    |
+| `U128`   | `Scalar`    |
+| `Scalar` | `Scalar`    |
+| `String` | `Scalar`    |
+| `Struct` | `Scalar`    |
 
 ***
 
