@@ -107,7 +107,7 @@ function withdraw_token_two:
 
     finalize self.caller r1;
 
-finalize withdrawl_token_two:
+finalize withdraw_token_two:
     input r0 as address.public;
     input r1 as u64.public;
 
