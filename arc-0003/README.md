@@ -214,19 +214,18 @@ program foo.aleo {
 
 ```
 Functions must be defined within a [program scope](#program-scope).
-
+In Aleo instructions, helper functions are written as `closure`.
 
 **Aleo instructions**
 ```rust=
 program foo.aleo;
 
-function compute:
+closure compute:
     input r0 as u64.private;
     input r1 as u64.private;
     add r0 r1 into r2;
     output r2 as u64.private;
 ```
-In Aleo instructions, functions were previously written as `closure` - this syntax is now deprecated.
 
 
 ### Test Cases
