@@ -14,11 +14,12 @@ Some Aleo instructions can halt when passed certain arguments.
 This halting behavior makes those instructions unusable
 by a program that wants to try something else if a halt is detected.
 
-For example if a Leo program contains a conditional, both branches
-are executed in a circuit, so if a branch not taken executes an
-instruction that halts, the whole program will incorrectly halt.
-Replacing the halting instruction by one that returns an error flag will
-allow such a program to compile correctly.
+For example, if a Leo program contains a conditional not in a
+finalize, both branches of the conditional are executed in the
+circuit, so if a branch not taken executes an instruction that halts,
+the whole program will incorrectly halt.  Replacing the halting
+instruction by one that returns an error flag will allow such a
+program to compile correctly.
 
 This ARC proposes to add new opcodes for flagged operations
 corresponding to the Aleo Instructions that can halt.
@@ -26,11 +27,14 @@ corresponding to the Aleo Instructions that can halt.
 ## Specification
 
 Each flagged operation is identical to the current halting instruction
-except it doesn't halt and it returns another return value that is a boolean.
+except it doesn't halt and it returns another return value that is a
+boolean.
 
-The flagged operations are different from wrapped (e.g. abs.w) or lossy (e.g. cast.lossy) operations.
-It is important that the flagged operation have the same semantics as the current halting instruction
-except for the halting behavior, for ease of use by compilers.
+The flagged operations are different from wrapped (e.g. `abs.w`) or
+lossy (e.g. `cast.lossy`) operations.  It is important that the flagged
+operation have the same semantics as the current halting instruction
+except for the halting behavior and extra return value, for ease of
+use by compilers.
 
 | Current Halting Opcode | New Flagged Opcode |
 |:-------------------:|:-----------------------:|
@@ -85,7 +89,7 @@ The Aleo Explorer will need to be updated to output the new operations when disp
 
 The "sdk" repository may need to be changed to show syntax highlighting on the new opcodes.
 
-After this change, the Leo compiler can more easily be fixed to prevent (https://github.com/AleoHQ/leo/issues/27482)[the conditional halting bug.]
+After this change, the Leo compiler can more easily be fixed to prevent [https://github.com/AleoHQ/leo/issues/27482](the conditional halting bug.)
 
 ### Backwards Compatibility
 
