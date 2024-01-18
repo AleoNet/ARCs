@@ -89,7 +89,7 @@ The Aleo Explorer will need to be updated to output the new operations when disp
 
 The "sdk" repository may need to be changed to show syntax highlighting on the new opcodes.
 
-After this change, the Leo compiler can more easily be fixed to prevent [https://github.com/AleoHQ/leo/issues/27482](the conditional halting bug.)
+After this change, the Leo compiler can more easily be fixed to prevent the [conditional halting bug.](<https://github.com/AleoHQ/leo/issues/27482>)
 
 ### Backwards Compatibility
 
