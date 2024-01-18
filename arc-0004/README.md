@@ -2,7 +2,7 @@
 arc: 4
 title: Flagged Operations
 authors: bendyarm, d0cd, acoglio
-discussion: https://
+discussion: https://github.com/AleoHQ/ARCs/discussions/63
 topic: # Choose: Protocol, Network, or Application
 status: Draft
 created: # Date
