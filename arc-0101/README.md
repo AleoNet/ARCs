@@ -1,7 +1,7 @@
 ---
 arc: 101
 title: Requirements and Evaluation Criteria for Validators
-authors: @zack_xb
+authors: zack_xb
 discussion: https://github.com/ProvableHQ/ARCs/discussions/82
 topic: Meta
 status: Living
