@@ -4,7 +4,7 @@ title: Adding self.parent opcode
 authors: evan@demoxlabs.xyz mike@demoxlabs.xyz
 discussion: https://github.com/AleoHQ/ARCs/discussions/11
 topic: Application
-status: Draft
+status: Deprecated
 created: 9/2/2022
 ---
 
