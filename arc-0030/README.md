@@ -166,4 +166,4 @@ There should be no regulatory concerns.
 
 ## References
 
-Explanation of [tx.origin vs msg.sender in etherem](https://ethereum.stackexchange.com/questions/1891/whats-the-difference-between-msg-sender-and-tx-origin)
+Explanation of [tx.origin vs msg.sender in ethereum](https://ethereum.stackexchange.com/questions/1891/whats-the-difference-between-msg-sender-and-tx-origin)
