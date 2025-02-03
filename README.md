@@ -13,15 +13,19 @@ To create a new ARC proposal:
 1. Open a [Github Discussion](https://github.com/AleoHQ/ARCs/discussions/categories/arcs) with your proposal using template [ARC-0000](./arc-0000) and an available ARC number.
 2. File a [Pull Request](https://github.com/AleoHQ/ARCs/pulls) with your proposal in a new subdirectory.
 
+To update an existing ARC:
+1. File a pull request with your changes. 
+2. If the change is significant, you may be asked to open a new ARC entirely.
+
 ### Progressing an ARC
 
 An ARC will start as a "Draft" and progress through the following stages:
 
 Once a proposal is up:
-1. The community will discuss and review the proposal. A maintainer will monitor the ARC and change its status to "Active" once it is ready.
-   a. ARCs will be prioritized by number of votes and whether a prototype exists.
-   b. ARCs will be discussed during certain community calls. Proposers will have the opportunity to join and participate in the discussion.
-   c. Up to this point, the ARC can be withdrawn by the proposer or withdrawn by the maintainers if there is no activity for a long time.
+1. The community will discuss and review the proposal. A maintainer will monitor the ARC and change its status to "Active" once it is ready. 
+    * ARCs will be prioritized by number of votes and whether a prototype exists.
+    * ARCs will be discussed during certain community calls. Proposers will have the opportunity to join and participate in the discussion.
+    * Up to this point, the ARC can be withdrawn by the proposer or withdrawn by the maintainers if there is no activity for a long time.
 2. A governor or a team member of the Aleo Network Foundation (ANF) will create a formal proposal on Aleo governance (https://vote.aleo.org/) and initiate the voting process.
 3. The community will vote on the proposal for approval.
 4. If the proposal is accepted, its status will be updated to "Accepted" and the associated pull request will be merged into the ARCs repo. If the proposal is rejected, the status will be reverted to "Draft".
