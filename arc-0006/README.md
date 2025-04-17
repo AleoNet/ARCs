@@ -362,10 +362,9 @@ constructor:
 ```
 
 # To Reviewers
-
+* Should executions be tied to specific versions of programs? should executions with an older state root than the last upgrade be valid?
 * Is there a usage of program upgrades this proposal does not cover?
-* Can upgrades be abused in a way that has not been addressed in this design?
-* Should the `Program` in an upgrade deployment be the entire program or the delta? If it's the latter, then we have a reasonable path to move beyond the 31 function limit.
-* Should developers be allowed to mark functions as immutable?
-* Should executions be tied to specific versions of programs? should executions with an older state root than the last upgrade be valid? 
+* Does the upgrade model feel easy to use? Is it operationally safe?
+* Should developers be allowed to mark functions as immutable? 
+
  
