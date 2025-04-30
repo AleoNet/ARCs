@@ -142,21 +142,35 @@ At a high-level, our proposed design introduces **constructors** and **operands*
 The Aleo Virtual Machine will support the following new operands:
 
 * `<PROGRAM_ID>/checksum`
-* `</sPROGRAM_ID>/edition`
+* `<PROGRAM_ID>/edition`
+* `<PROGRAM_ID>/program_owner`
 
 **These specific operands can only be used in off-chain AND on-chain contexts.**
 
 ### Checksum
 
 * The `checksum` is defined as the SHA3-256 hash of the program string.
+* It is available in the `function` and `finalize` scope.
 * It is a `[u8; 32u32]` and is optionally declared in a `Deployment` transaction.
-* At a defined migration height, the protocol will require that the `checksum` is defined in a `Deployment`.
+* Before a defined migration height, the protocol will require that the `checksum` is **NOT** defined in a `Deployment`.
+* After a defined migration height, the protocol will require that the `checksum` is defined in a `Deployment`.
+
 
 ### Edition
 
 * The `edition` denotes the version of a program.
+* It is available in the `function` and `finalize` scope.
 * It is a `u16` literal and is explicitly declared in a `Deployment` transaction.
 * An `edition` must be `0` when a program is first deployed and must be incremented by 1 on each upgrade.
+
+
+### Program Owner
+
+* The `program_owner` is the address that deployed the program.
+* It is only available in the `finalize` scope.
+* It is an `address` and is optionally declared in a `Deployment` transaction.
+* Before a defined migration height, the protocol will require that the `program_owner` is **NOT** defined in a `Deployment`.
+* After a defined migration height, the protocol will require that the `program_owner` is defined in a `Deployment`.
 
 ## Constructors
 
@@ -179,17 +193,24 @@ A core idea of this design is to allow developers to define rich instantiation a
 
 ## Verifying a Deployment
 
-To support upgrades, deployments are checked using the following rules:
-* Verify that the optional checksum in the `Deployment` is valid.
-* Verify that the `ProgramOwner` is well-formed. Note that the `owner` is not meaningfully used by the protocol. **Developers should not assume that the <code>ProgramOwner</code> was the one that was originally issued in the <code>Deployment</code> transaction. **See the [Usage](#usage) section for examples regarding authorizing upgrades.**
+To support upgrades, deployments are checked using the additional rules:
+
+* Before upgradability is enabled:
+    * the deployment edition is zero.
+    * the deployment checksum is `None`
+    * the deployment owner is `None`
+    * the deployment program does **NOT** use `constructor` or any of the new operands.
+* After upgradability is enabled:
+    * The deployment checksum is `Some` and that it matches the program.
+    * The deployment owner is `Some` and that it matches the transaction
+    * The program contains a `constructor`
 * If the `edition` is zero (`N::EDITION`), then check that:
     * the program does not exist in the DB or in-memory `Process`
-    * note that the program may have a constructor, in which case it is upgradable
 * Otherwise, check that:
     * the program does exist in the DB and in-memory `Process`
-    * the existing program is upgradable (it has a constructor)
     * the new edition increments the old edition by 1
     * the upgraded code is well-formed and does not violate any of the upgrade rules
+    * the existing program has a constructor. If it does not have a constructor, **a one-time migration is allowed for programs that were deployed before upgradability was enabled.** To qualify for the migration, the owner must match the previous owner. (See **Existing Programs** below)
 
 ## Changes to the VM and DB
 
@@ -281,6 +302,18 @@ constructor:
 ...
 ```
 
+## Admin-Driven Upgrades
+**Goal.** Define a program that only an authorized admin can upgrade.
+
+**Important. Note that the admin account can NEVER be changed. This pattern should be used IFF the private key associated with the admin is properly secured.**
+```
+program foo.aleo;
+...
+constructor:
+    assert.eq owner <ADMIN_ADDRESS>; // You can add any number of admin addresses.
+...
+```
+
 ## Content-Locked Upgrades
 
 **Goal.** Define a program that can only be upgraded to a program with some specific contents.
@@ -299,8 +332,8 @@ constructor:
 ...
 ```
 
-## Admin-Driven Upgrades
-**Goal.** Define a program that only an authorized admin can upgrade.
+## Configurable Admin-Driven Upgrades
+**Goal.** Define a program that only an authorized admin can upgrade, with the option to swap admins and declare programs upfront.
 **This pattern combines the ideas behind Content-Locked Upgrades with the notion of an administrator.**
 ```
 program foo.aleo;
@@ -360,6 +393,13 @@ constructor:
     assert.eq r0 true; // Upgrades can be made by anyone, only after block 10.
 ...
 ```
+
+# Existing Programs
+- Programs deployed pre-upgradability are allowed a one-time opt-in migration during which they can deploy a new version of their program. The new program must have a constructor, which will define the upgrade scheme going forward.
+
+- The migration can only be invoked by the same program owner that originally deployed the program.
+
+- IMPORTANT. There are certain programs that you may not want to be upgradable, for example token_registry.aleo. The ANF will need to coordinate with the community to determine which programs should be upgraded. The migration logic will need to be adjusted if special cases need to be handled.
 
 # To Reviewers
 * Should executions be tied to specific versions of programs? should executions with an older state root than the last upgrade be valid?
