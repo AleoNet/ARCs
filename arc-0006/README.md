@@ -188,6 +188,7 @@ Additionally, constructors have the following rules:
 * **If a constructor halts, then the deployment or upgrade will fail.**
 * **A program without a constructor is NOT upgradable.**
 * **A program WITH a constructor is upgradable.**
+* **Programs deployed after program upgradability is supported must all have constructors.**
 
 A core idea of this design is to allow developers to define rich instantiation and upgrade logic that suits their needs. Refer to the [Usage](#usage) section for more examples.
 
@@ -210,7 +211,7 @@ To support upgrades, deployments are checked using the additional rules:
     * the program does exist in the DB and in-memory `Process`
     * the new edition increments the old edition by 1
     * the upgraded code is well-formed and does not violate any of the upgrade rules
-    * the existing program has a constructor. If it does not have a constructor, **a one-time migration is allowed for programs that were deployed before upgradability was enabled.** To qualify for the migration, the owner must match the previous owner. (See **Existing Programs** below)
+    * the existing program has a constructor.
 
 ## Changes to the VM and DB
 
@@ -250,8 +251,11 @@ Dependent programs have some defenses available to them. In **Usage**, we detail
 
 Developers also need to be mindful of the fact that constructors are immutable. **This means that a bug in the constructor logic cannot be fixed by rolling out a new upgrade.** Developers should take special care and perform security audits.
 
+**The protocol provides some application security by requiring that all executions contains signatures over the checksums of the programs they intend to execute. This reduces the likelihood that a malicious developer front-runs an execution with an upgrade that a user did not know about.**
+
 ## Audits
-We will update this section with progress on audits.
+Audits have been completed and their findings are addressed in this PR: https://github.com/ProvableHQ/snarkVM/pull/2758.
+The reports will be made public.
 
 # Usage
 
@@ -310,7 +314,7 @@ constructor:
 program foo.aleo;
 ...
 constructor:
-    assert.eq owner <ADMIN_ADDRESS>; // You can add any number of admin addresses.
+    assert.eq program_owner <ADMIN_ADDRESS>; // You can add any number of admin addresses.
 ...
 ```
 
@@ -326,9 +330,10 @@ mapping expected:
     value as u128;
 ...
 constructor:
-    branch.neq foo.aleo/edition 0u16 to end;
+    branch.eq foo.aleo/edition 0u16 to end;
     get expected[true] into r0; // Assume that there was some mechanism to set the expected value.
     assert.eq foo.aleo/checksum r0;
+    position end;
 ...
 ```
 
@@ -377,9 +382,10 @@ import governor.aleo; // Assume `governer.aleo` has some logic for voting on upg
 program foo.aleo;
 ...
 constructor:
-    branch.neq foo.aleo/edition 0u16 to end;
+    branch.eq foo.aleo/edition 0u16 to end;
     get governor.aleo/accepted[true] into r0;
     assert.eq foo.aleo/checksum r0;
+    position end;
 ```
 
 ## Time-Locked Upgrades
@@ -394,17 +400,12 @@ constructor:
 ...
 ```
 
-# Existing Programs
-- Programs deployed pre-upgradability are allowed a one-time opt-in migration during which they can deploy a new version of their program. The new program must have a constructor, which will define the upgrade scheme going forward.
-
-- The migration can only be invoked by the same program owner that originally deployed the program.
-
-- IMPORTANT. There are certain programs that you may not want to be upgradable, for example token_registry.aleo. The ANF will need to coordinate with the community to determine which programs should be upgraded. The migration logic will need to be adjusted if special cases need to be handled.
+# To Developers
+* It is important to note that closures are **NOT** upgradable since they make up the verification keys of any function that calls them. Developers should only call external closures that they have verified the functionality of.
 
 # To Reviewers
-* Should executions be tied to specific versions of programs? should executions with an older state root than the last upgrade be valid?
 * Is there a usage of program upgrades this proposal does not cover?
 * Does the upgrade model feel easy to use? Is it operationally safe?
-* Should developers be allowed to mark functions as immutable? 
+* Should developers be allowed to mark functions as immutable? The current thinking is to defer this to future work, if developers ask for it.
 
  
