@@ -150,7 +150,7 @@ The Aleo Virtual Machine will support the following new operands:
 ### Checksum
 
 * The `checksum` is defined as the SHA3-256 hash of the program string.
-* It is available in the `function` and `finalize` scope.
+* It is available in the `finalize` scope.
 * It is a `[u8; 32u32]` and is optionally declared in a `Deployment` transaction.
 * Before a defined migration height, the protocol will require that the `checksum` is **NOT** defined in a `Deployment`.
 * After a defined migration height, the protocol will require that the `checksum` is defined in a `Deployment`.
@@ -159,7 +159,7 @@ The Aleo Virtual Machine will support the following new operands:
 ### Edition
 
 * The `edition` denotes the version of a program.
-* It is available in the `function` and `finalize` scope.
+* It is available in the `finalize` scope.
 * It is a `u16` literal and is explicitly declared in a `Deployment` transaction.
 * An `edition` must be `0` when a program is first deployed and must be incremented by 1 on each upgrade.
 
@@ -167,7 +167,7 @@ The Aleo Virtual Machine will support the following new operands:
 ### Program Owner
 
 * The `program_owner` is the address that deployed the program.
-* It is only available in the `finalize` scope.
+* It is available in the `finalize` scope.
 * It is an `address` and is optionally declared in a `Deployment` transaction.
 * Before a defined migration height, the protocol will require that the `program_owner` is **NOT** defined in a `Deployment`.
 * After a defined migration height, the protocol will require that the `program_owner` is defined in a `Deployment`.
@@ -402,6 +402,7 @@ constructor:
 
 # To Developers
 * It is important to note that closures are **NOT** upgradable since they make up the verification keys of any function that calls them. Developers should only call external closures that they have verified the functionality of.
+* We strongly recommend  that production applications define a secure upgrade pathway. This will allow applications to stay up-to-date with future protocol changes that may affect the underlying circuits
 
 # To Reviewers
 * Is there a usage of program upgrades this proposal does not cover?
