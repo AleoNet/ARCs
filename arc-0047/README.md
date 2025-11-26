@@ -1,11 +1,11 @@
 ---
-arc: 0047
+arc: 47
 title: Limit Aleo's Total Credits Supply to 5 Billion
-authors: @raychu86
-discussion: #101 
+authors: raychu86
+discussion:  https://github.com/ProvableHQ/ARCs/discussions/101
 topic: Protocol
 status: Draft
-created: 11-26-25
+created: 2025-11-26
 ---
 
 ## Abstract
