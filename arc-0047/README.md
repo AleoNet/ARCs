@@ -10,7 +10,7 @@ signature_domain: aleo-gov-47-v1
 pass_threshold: 66
 quorum_threshold: 66
 voting_start: 13625904
-voting_end: 13626904
+voting_end: 13628904
 snapshot: 13628904
 ---
 
