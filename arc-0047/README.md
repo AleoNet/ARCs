@@ -60,6 +60,9 @@ Properties of this approach:
 - **Block reward emissions** are expected to produce ~5% annual inflation on the initial 1.5B supply, i.e., roughly 75M ALEO per year.
 - **Puzzle reward emissions** vary with proving activity. The emission rate decreases over time and becomes flat at year 9 from genesis.
 
+<div style="overflow-x: auto; width: 100%;">
+
+
 |                | Block Height   | Block Reward (Avg per Block) | Coinbase Reward (Avg per Block) | Puzzle/Payout Reward (Avg per Block) | Actual Total Supply | Total Supply (Upper Bound) |
 |----------------|----------------|------------------------------|----------------------------------|---------------------------------------|----------------------|-----------------------------|
 | Genesis        | Genesis        | 0                            | 7.1                              | 20.5                                  | 1.5B                 | 1.5B                        |
@@ -90,7 +93,7 @@ Properties of this approach:
 | Year 25        | Year 25        | 262.8M                       | 7.1                              | 2.3                                   | -                    | 4.991B                      |
 | Year 25 Q4+    | Year 25 Q4+    | 263.5M                       | 0                                | 0                                     | -                    | 5B                          |
 
-
+</div>
 
 ## Reference Implementations
 
