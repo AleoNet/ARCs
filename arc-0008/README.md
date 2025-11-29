@@ -9,7 +9,7 @@ created: 2025-11-28
 signature_domain: aleo-gov-8-v1
 pass_threshold: 66
 quorum_threshold: 66
-voting_start: 13800000
+voting_start: 13700000
 voting_end: 14000000
 snapshot: 14000000
 ---
